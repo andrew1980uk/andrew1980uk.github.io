@@ -1,0 +1,56 @@
+$mobile: new-breakpoint(max-width 500px 4);
+
+section {
+  @include clearfix;
+  @include outer-container;
+  @include fill-parent();
+  text-align: center;
+  margin-bottom: 3em;
+
+  & > code, code.block {
+    display: block;
+  }
+
+  div {
+    text-align: left;
+    padding: 1em;
+  }
+
+  &.homecontainer {
+    div {
+
+      @include media($mobile) {
+          font-size: 0.9em;
+          line-height: 1.5em;
+        }
+
+
+      &#alpha {
+     
+        @include span-columns(2);
+        
+        @include media($mobile) {
+        @include span-columns(4);
+      }
+      }
+
+      &#beta {
+        
+        padding: 0;
+        text-align: center;
+        @include span-columns(10);
+
+        @include media($mobile) {
+        @include span-columns(4);
+        }
+
+        aside {
+          @include span-columns(4 of 8);
+          border: none;
+          height: 84%;
+          padding: 1em;
+        }
+      }
+    }
+  }
+}
